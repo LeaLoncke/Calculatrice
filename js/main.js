@@ -40,6 +40,7 @@ function getValue(element) {
 equal.onclick = function() {
   result = eval(result);
   display.innerHTML = result;
+  result = "";
 }
 
 
@@ -47,16 +48,19 @@ equal.onclick = function() {
 back.onclick = function() {
   var lastCaract = result.length - 1;
   result = result.substring(0, lastCaract);
+  display.innerHTML = result;
   if (result.length === 0) {
     result = "0";
+    display.innerHTML = result;
+    result = "";
   }
-  display.innerHTML = result;
 }
 
 
 // reset at 0 'display'
 clearButton.onclick = function() {
-  display.innerHTML = "0";
+  result = "0";
+  display.innerHTML = result;
   result = "";
 }
 
