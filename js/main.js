@@ -7,6 +7,8 @@ var display = document.getElementById('display');
 var back = document.getElementById('back');
 var clearButton = document.getElementById('clear');
 var equal = document.getElementById('equal');
+var negative = document.getElementById('negative');
+var pourcent = document.getElementById('pourcent');
 var result = "";
 
 
@@ -64,6 +66,30 @@ clearButton.onclick = function() {
   result = "";
 }
 
+// 'negative' : 5 -> -5 / -5 -> 5
+var negativeClick = 0;
+
+negative.onclick = function() {
+
+  negativeClick++;
+
+  if ((negativeClick % 2) !== 0) {
+    result = '-' + result;
+    display.innerHTML = result;
+  } else if ((negativeClick % 2) === 0) {
+    result = result.substring(1, result.length);
+    display.innerHTML = result;
+  }
+
+} // end of negative.onclick function
+
+
+// 'pourcent' : 25 * 10 / 100 -> 25 * 10 %   (= 2.5)
+pourcent.onclick = function() {
+  result = eval(result += '/100');
+  display.innerHTML = result;
+  result = "";
+  }
 
 
 
@@ -78,7 +104,4 @@ clearButton.onclick = function() {
 
 
 
-
-
-
-//BOUH
+//
