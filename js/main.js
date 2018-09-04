@@ -32,10 +32,15 @@ dot.onclick = function() {
 };
 
 // store the value of the item that we click in a variable
+// but if 'element' is 0 and display too -> it does not add to 'display'
 function getValue(element) {
-  result += element.innerHTML;
-  display.innerHTML = result;
-}
+  if (element.innerHTML === "0" && display.innerHTML === "0") {
+    display.innerHTML = "0";
+  } else {
+    result += element.innerHTML;
+    display.innerHTML = result;
+  }
+} // end of function getValue(element)
 
 
 // calculate the value of 'result' and return the result in 'display'
@@ -89,7 +94,22 @@ pourcent.onclick = function() {
   result = eval(result += '/100');
   display.innerHTML = result;
   result = "";
-  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
