@@ -32,14 +32,16 @@ dot.onclick = function() {
 };
 
 // store the value of the item that we click in a variable
-// but if 'element' is 0 and display too -> it does not add to 'display'
+// but if 'element' is 0 and display too -> it does not add 0 to 'display'
 function getValue(element) {
+
   if (element.innerHTML === "0" && display.innerHTML === "0") {
     display.innerHTML = "0";
   } else {
     result += element.innerHTML;
     display.innerHTML = result;
   }
+
 } // end of function getValue(element)
 
 
@@ -53,14 +55,17 @@ equal.onclick = function() {
 
 // remove the last element added in 'result' when we click on 'back' ( < )
 back.onclick = function() {
+
   var lastCaract = result.length - 1;
   result = result.substring(0, lastCaract);
   display.innerHTML = result;
+
   if (result.length === 0) {
     result = "0";
     display.innerHTML = result;
     result = "";
   }
+
 }
 
 
@@ -72,17 +77,13 @@ clearButton.onclick = function() {
 }
 
 // 'negative' : 5 -> -5 / -5 -> 5
-var negativeClick = 0;
-
 negative.onclick = function() {
 
-  negativeClick++;
-
-  if ((negativeClick % 2) !== 0) {
-    result = '-' + result;
-    display.innerHTML = result;
-  } else if ((negativeClick % 2) === 0) {
+  if (result.charAt(0) === "-") {
     result = result.substring(1, result.length);
+    display.innerHTML = result;
+  } else {
+    result = '-' + result;
     display.innerHTML = result;
   }
 
@@ -91,20 +92,10 @@ negative.onclick = function() {
 
 // 'pourcent' : 25 * 10 / 100 -> 25 * 10 %   (= 2.5)
 pourcent.onclick = function() {
-  result = eval(result += '/100');
+  result = eval(result + "/100");
   display.innerHTML = result;
   result = "";
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
